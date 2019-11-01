@@ -1,0 +1,33 @@
+export const master = `
+# A simple master playlist with multiple variant streams
+#EXTM3U
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=240000,RESOLUTION=396x224
+media.m3u8
+#EXT-X-STREAM-INF:PROGRAM-ID=1, BANDWIDTH=40000
+media1.m3u8
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=440000,RESOLUTION=396x224
+media2.m3u8
+#EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=1928000,RESOLUTION=960x540
+media3.m3u8
+`;
+
+export const media = `
+#EXTM3U
+#EXT-X-PLAYLIST-TYPE:VOD
+#EXT-X-TARGETDURATION:10
+#EXTINF:10,
+media-00001.ts
+#EXTINF:10,
+media-00002.ts
+#EXTINF:10,
+media-00003.ts
+#EXTINF:10,
+media-00004.ts
+#ZEN-TOTAL-DURATION:57.9911
+#EXT-X-ENDLIST
+`;
+
+export default {
+  master,
+  media
+};
