@@ -1,6 +1,17 @@
 const mpegurlRE = /^(audio|video|application)\/(x-|vnd\.apple\.)?mpegurl/i;
 const dashRE = /^application\/dash\+xml/i;
 
+/**
+ * Returns a string that describes the type of source based on a video source object's
+ * media type.
+ *
+ * @see {@link https://dev.w3.org/html5/pf-summary/video.html#dom-source-type|Source Type}
+ *
+ * @param {string} type
+ *        Video source object media type
+ * @return {('hls'|'dash'|'vhs-json')}
+ *         VHS source type string
+ */
 export const simpleTypeFromSourceType = (type) => {
   if (mpegurlRE.test(type)) {
     return 'hls';

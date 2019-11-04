@@ -95,6 +95,17 @@ export const parseCodecs = function(codecs = '') {
   return result;
 };
 
+/**
+ * Returns a ParsedCodecInfo object for the default alternate audio playlist if there is
+ * a default alternate audio playlist for the provided audio group.
+ *
+ * @param {Object} master
+ *        The master playlist
+ * @param {string} audioGroupId
+ *        ID of the audio group for which to find the default codec info
+ * @return {ParsedCodecInfo}
+ *         Parsed codec info
+ */
 export const audioProfileFromDefault = (master, audioGroupId) => {
   if (!master.mediaGroups.AUDIO || !audioGroupId) {
     return null;

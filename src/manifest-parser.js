@@ -2,6 +2,14 @@ import { Parser as M3u8Parser } from 'm3u8-parser';
 import { parse as parseMpd } from 'mpd-parser';
 import resolveUrl from './resolve-url';
 
+/**
+ * Adds `resolvedUri` properties alongside other `uri` properties in the provided segment.
+ *
+ * @param {Object} segment
+ *        The segment to add `resolvedUri` properties to
+ * @param {string} baseUri
+ *        The URI to base the segment's URI off of for relative paths
+ */
 export const resolveSegmentUris = (segment, baseUri) => {
   if (!segment.resolvedUri) {
     segment.resolvedUri = resolveUrl(baseUri, segment.uri);
@@ -35,6 +43,12 @@ export const forEachMediaGroup = (master, callback) => {
   });
 };
 
+/**
+ * Adds the `resolvedUri` property alongside the `uri` property in any found media group.
+ *
+ * @param {Object} master
+ *        The master playlist
+ */
 export const resolveMediaGroupUris = (master) => {
   forEachMediaGroup(master, (properties) => {
     if (properties.uri) {
